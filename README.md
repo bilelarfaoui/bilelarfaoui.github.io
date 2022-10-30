@@ -2,4 +2,4 @@
 this is my porfolio
 
 
-![2022-10-30_10-59](https://user-images.githubusercontent.com/69963256/198873078-804d8853-7108-425a-a3d6-7bdd378b7c3f.png)
+![screenshot](https://user-images.githubusercontent.com/69963256/198873092-6ec5360d-fe87-4292-9b60-43f770ef8a02.png)
