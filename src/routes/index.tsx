@@ -60,15 +60,15 @@ function Portfolio() {
       </header>
 
       <main id="top">
-        <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 pt-16 lg:min-h-[720px] lg:grid-cols-[1.2fr_0.8fr] lg:gap-20 lg:px-10 lg:pb-24 lg:pt-20">
+        <section className="mx-auto grid max-w-7xl items-center gap-8 px-6 pb-16 pt-10 lg:min-h-[720px] lg:grid-cols-[1.2fr_0.8fr] lg:gap-20 lg:px-10 lg:pb-24 lg:pt-20">
           <div className="max-w-2xl">
-            <div className="mb-7 inline-flex items-center gap-2 rounded-md bg-accent px-3 py-2 font-mono text-[10px] font-medium uppercase text-accent-foreground sm:text-xs">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-md bg-accent px-3 py-2 font-mono text-[10px] font-medium uppercase text-accent-foreground sm:mb-7 sm:text-xs">
               <span className="size-1.5 shrink-0 rounded-full bg-primary" /> IT Systems Administration / Cybersecurity
             </div>
-            <p className="mb-4 font-mono text-xs uppercase text-muted-foreground">Hello, I’m Bilel.</p>
-            <h1 className="max-w-[13ch] text-balance text-5xl font-semibold leading-[1.05] sm:text-6xl lg:text-[4.5rem]">Building reliable systems. <span className="text-primary">Thinking security first.</span></h1>
-            <p className="mt-8 max-w-[54ch] text-base leading-8 text-muted-foreground sm:text-lg">I’m interested in the space where dependable IT operations meet stronger cyber defense — keeping systems running while making them safer by design.</p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <p className="mb-3 font-mono text-xs uppercase text-muted-foreground sm:mb-4">Hello, I’m Bilel.</p>
+            <h1 className="max-w-[13ch] text-balance text-[2.65rem] font-semibold leading-[1.05] sm:text-6xl lg:text-[4.5rem]">Building reliable systems. <span className="text-primary">Thinking security first.</span></h1>
+            <p className="mt-5 max-w-[54ch] text-base leading-7 text-muted-foreground sm:mt-8 sm:text-lg sm:leading-8">I’m interested in the space where dependable IT operations meet stronger cyber defense — keeping systems running while making them safer by design.</p>
+            <div className="mt-6 flex flex-wrap gap-3 sm:mt-9">
               <Button asChild variant="portfolio" size="lg" className="h-11 px-5"><a href="#focus">Explore my focus <ArrowRight aria-hidden="true" /></a></Button>
               <Button asChild variant="portfolioOutline" size="lg" className="h-11 px-5"><a href="#about">Get to know me <ArrowDown aria-hidden="true" /></a></Button>
             </div>
