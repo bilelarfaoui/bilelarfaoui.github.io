@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep this portfolio as a single TanStack index route with semantic theme tokens in `src/styles.css`, because its content is one coherent professional profile.
+- Treat unverified résumé details as absent rather than inventing qualifications, employers, or contact information, because professional claims must be authentic.
