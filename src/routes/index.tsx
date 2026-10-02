@@ -7,10 +7,10 @@ import portrait from "@/assets/bilel-portrait.jpeg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Bilel Arfaoui — Systems Administration & Cybersecurity" },
-      { name: "description", content: "Bilel Arfaoui: IT graduate in systems administration, network hardening and security monitoring, completing a Master's in Cybersecurity." },
-      { property: "og:title", content: "Bilel Arfaoui — Systems & Security" },
-      { property: "og:description", content: "Experience, projects, skills and certifications in systems administration and cybersecurity." },
+      { title: "Bilel Arfaoui — Technical Specialist & Cybersecurity" },
+      { name: "description", content: "Bilel Arfaoui: Technical Specialist and IT graduate with a passion for security monitoring, network hardening and a hands-on home lab, completing a Master's in Cybersecurity." },
+      { property: "og:title", content: "Bilel Arfaoui — Technical Specialist & Security" },
+      { property: "og:description", content: "Experience, projects, skills and certifications in technical support, cybersecurity and home-lab systems." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -105,8 +105,8 @@ function Portfolio() {
               <span className="size-1.5 shrink-0 animate-pulse rounded-full bg-primary" /> Available for hire — remote or relocation
             </div>
             <p className="mb-3 font-mono text-xs uppercase text-muted-foreground sm:mb-4">Hello, I’m Bilel Arfaoui.</p>
-            <h1 className="max-w-[14ch] text-balance text-[2.65rem] font-semibold leading-[1.05] sm:text-6xl lg:text-[4.5rem]">Systems admin. <span className="text-primary">Security mindset.</span></h1>
-            <p className="mt-5 max-w-[54ch] text-base leading-7 text-muted-foreground sm:mt-8 sm:text-lg sm:leading-8">IT graduate specializing in systems administration, network hardening and security monitoring — currently completing a Master’s in Cybersecurity.</p>
+            <h1 className="max-w-[14ch] text-balance text-[2.65rem] font-semibold leading-[1.05] sm:text-6xl lg:text-[4.5rem]">Technical specialist. <span className="text-primary">Security mindset.</span></h1>
+            <p className="mt-5 max-w-[54ch] text-base leading-7 text-muted-foreground sm:mt-8 sm:text-lg sm:leading-8">IT graduate and Technical Specialist focused on network hardening and security monitoring — currently completing a Master’s in Cybersecurity, and running a home lab for the love of it.</p>
             <div className="mt-6 flex flex-wrap gap-3 sm:mt-9">
               <Button asChild variant="portfolio" size="lg" className="h-11 px-5"><a href="#connect">Get in touch <ArrowRight aria-hidden="true" /></a></Button>
               <Button asChild variant="portfolioOutline" size="lg" className="h-11 px-5"><a href="#experience">View experience <ArrowDown aria-hidden="true" /></a></Button>
@@ -131,9 +131,9 @@ function Portfolio() {
 
         <section id="about" className="scroll-mt-20 border-b border-border py-24 lg:py-32">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-[1fr_2fr] md:gap-20 lg:px-10">
-            <div><p className="mb-5 font-mono text-xs uppercase text-primary">01 / About me</p><h2 className="max-w-xs text-3xl font-semibold leading-tight sm:text-4xl">Infrastructure that runs. Defenses that hold.</h2></div>
+            <div><p className="mb-5 font-mono text-xs uppercase text-primary">01 / About me</p><h2 className="max-w-xs text-3xl font-semibold leading-tight sm:text-4xl">Support that holds. Defenses that hold.</h2></div>
             <div className="max-w-2xl space-y-6 text-lg leading-8 text-muted-foreground">
-              <p>I’m a highly motivated IT graduate specializing in systems administration, network hardening and security monitoring.</p>
+              <p>I’m a Technical Specialist at EPAY and an IT graduate with a strong interest in network hardening and security monitoring — systems administration is my playground at home, where I run my own lab for fun.</p>
               <p>I’m currently completing a Master’s degree in Cybersecurity and actively seeking a challenging End-of-Study / graduation project. I’m available to get hired remotely or to relocate, and I bring experience in virtualized infrastructure, automated deployments and technical support across international environments.</p>
               <div className="grid gap-4 border-t border-border pt-6 sm:grid-cols-2">
                 <div><p className="font-mono text-[10px] uppercase text-primary">Education</p><p className="mt-1 text-base text-foreground">Master in Cybersecurity <span className="text-muted-foreground">(in progress)</span></p><p className="text-base text-foreground">Bachelor in IT — ISET Nabeul <span className="text-muted-foreground">(2020–2023)</span></p></div>
@@ -191,7 +191,7 @@ function Portfolio() {
         <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 lg:px-10">
           <p className="mb-5 font-mono text-xs uppercase text-primary">05 / Contact</p>
           <div className="flex flex-col justify-between gap-12 md:flex-row md:items-end">
-            <div><h2 className="max-w-[15ch] text-4xl font-semibold leading-tight sm:text-5xl">Let’s build what’s next, securely.</h2><p className="mt-5 max-w-md text-muted-foreground">Available to get hired remotely or to relocate — open to roles and projects in systems or cybersecurity. Let’s talk.</p></div>
+            <div><h2 className="max-w-[15ch] text-4xl font-semibold leading-tight sm:text-5xl">Let’s build what’s next, securely.</h2><p className="mt-5 max-w-md text-muted-foreground">Available to get hired remotely or to relocate — open to technical, IT support and cybersecurity roles. Let’s talk.</p></div>
             <ul className="space-y-3 text-sm">
               {contacts.map(({ icon: Icon, label, href }) => <li key={label} className="flex items-center gap-3"><Icon className="size-4 text-primary" aria-hidden="true" />{href ? <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="transition-colors hover:text-primary">{label}</a> : <span>{label}</span>}</li>)}
             </ul>
