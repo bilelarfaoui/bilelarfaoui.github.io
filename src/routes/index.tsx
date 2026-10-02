@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
 });
 
 const experience = [
-  { role: "Technical Specialist", org: "EPAY", period: "Aug 2023 – Present", mode: "Remote", points: ["Diagnose complex technical issues and provide rapid, specialized support for MEA regional clients.", "Resolve software and operational inquiries in professional English with high efficiency.", "Maintain systems stability and resolve client issues promptly to meet SLA targets."] },
+  { role: "Technical Specialist", org: "EPAY", period: "Aug 2023 – Present", mode: "Remote", points: ["Diagnose complex technical issues and provide rapid, specialized support for MEA regional clients.", "Resolve software and operational inquiries in professional English with high efficiency.", "Maintain systems stability and resolve client issues promptly to keep client operations running smoothly."] },
   { role: "Systems & Infrastructure Intern", org: "Tunisair", period: "Mar 2023 – May 2023", mode: "Hybrid", points: ["Deployed a highly available virtualized pre-production environment for an Operational Center using VMware vSphere and Windows Server.", "Automated custom Windows image captures and silent installs with PowerShell, MDT and WDS.", "Hardened network infrastructure with pfSense, WSUS patching and Zabbix monitoring."] },
   { role: "DevOps / Systems Monitoring Intern", org: "NetInfo", period: "Jan 2022 – Feb 2022", mode: "Remote", points: ["Implemented an end-to-end observability stack with Grafana and InfluxDB.", "Configured Telegraf metrics collection, Loki log aggregation and Promtail shipping agents."] },
 ];
@@ -49,7 +49,6 @@ const contacts = [
   { icon: Mail, label: "arfaouibilel@proton.me", href: "mailto:arfaouibilel@proton.me" },
   { icon: Phone, label: "+216 51 028 799", href: "tel:+21651028799" },
   { icon: Linkedin, label: "linkedin.com/in/bilelarfaoui", href: "https://linkedin.com/in/bilelarfaoui" },
-  { icon: Globe, label: "bilelarfaoui.netlify.app", href: "https://bilelarfaoui.netlify.app" },
   { icon: MapPin, label: "Nabeul, Tunisia" },
 ];
 
@@ -102,8 +101,8 @@ function Portfolio() {
       <main id="top">
         <section className="mx-auto grid max-w-7xl items-center gap-8 px-6 pb-16 pt-10 lg:min-h-[720px] lg:grid-cols-[1.2fr_0.8fr] lg:gap-20 lg:px-10 lg:pb-24 lg:pt-20">
           <div className="max-w-2xl">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-md bg-accent px-3 py-2 font-mono text-[10px] font-medium uppercase text-accent-foreground sm:mb-7 sm:text-xs">
-              <span className="size-1.5 shrink-0 animate-pulse rounded-full bg-primary" /> Open to End-of-Study (EOS) projects
+            <div className="mb-5 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-md bg-accent px-3 py-2 font-mono text-[10px] font-medium uppercase text-accent-foreground sm:mb-7 sm:text-xs">
+              <span className="size-1.5 shrink-0 animate-pulse rounded-full bg-primary" /> Available for hire — remote or relocation
             </div>
             <p className="mb-3 font-mono text-xs uppercase text-muted-foreground sm:mb-4">Hello, I’m Bilel Arfaoui.</p>
             <h1 className="max-w-[14ch] text-balance text-[2.65rem] font-semibold leading-[1.05] sm:text-6xl lg:text-[4.5rem]">Systems admin. <span className="text-primary">Security mindset.</span></h1>
@@ -135,7 +134,7 @@ function Portfolio() {
             <div><p className="mb-5 font-mono text-xs uppercase text-primary">01 / About me</p><h2 className="max-w-xs text-3xl font-semibold leading-tight sm:text-4xl">Infrastructure that runs. Defenses that hold.</h2></div>
             <div className="max-w-2xl space-y-6 text-lg leading-8 text-muted-foreground">
               <p>I’m a highly motivated IT graduate specializing in systems administration, network hardening and security monitoring.</p>
-              <p>I’m currently completing a Master’s degree in Cybersecurity and actively seeking a challenging End-of-Study (EOS) / graduation project. I bring experience in virtualized infrastructure, automated deployments and technical support across international environments.</p>
+              <p>I’m currently completing a Master’s degree in Cybersecurity and actively seeking a challenging End-of-Study / graduation project. I’m available to get hired remotely or to relocate, and I bring experience in virtualized infrastructure, automated deployments and technical support across international environments.</p>
               <div className="grid gap-4 border-t border-border pt-6 sm:grid-cols-2">
                 <div><p className="font-mono text-[10px] uppercase text-primary">Education</p><p className="mt-1 text-base text-foreground">Master in Cybersecurity <span className="text-muted-foreground">(in progress)</span></p><p className="text-base text-foreground">Bachelor in IT — ISET Nabeul <span className="text-muted-foreground">(2020–2023)</span></p></div>
                 <div><p className="font-mono text-[10px] uppercase text-primary">Languages</p><p className="mt-1 text-base text-foreground">{languages.map(([l, lv]) => `${l} (${lv})`).join(" · ")}</p></div>
@@ -192,7 +191,7 @@ function Portfolio() {
         <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 lg:px-10">
           <p className="mb-5 font-mono text-xs uppercase text-primary">05 / Contact</p>
           <div className="flex flex-col justify-between gap-12 md:flex-row md:items-end">
-            <div><h2 className="max-w-[15ch] text-4xl font-semibold leading-tight sm:text-5xl">Let’s build what’s next, securely.</h2><p className="mt-5 max-w-md text-muted-foreground">Looking for an End-of-Study project in systems or cybersecurity. Let’s talk.</p></div>
+            <div><h2 className="max-w-[15ch] text-4xl font-semibold leading-tight sm:text-5xl">Let’s build what’s next, securely.</h2><p className="mt-5 max-w-md text-muted-foreground">Available to get hired remotely or to relocate — open to roles and projects in systems or cybersecurity. Let’s talk.</p></div>
             <ul className="space-y-3 text-sm">
               {contacts.map(({ icon: Icon, label, href }) => <li key={label} className="flex items-center gap-3"><Icon className="size-4 text-primary" aria-hidden="true" />{href ? <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="transition-colors hover:text-primary">{label}</a> : <span>{label}</span>}</li>)}
             </ul>
