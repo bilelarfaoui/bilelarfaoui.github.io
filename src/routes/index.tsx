@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, Globe, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import portrait from "@/assets/bilel-portrait.jpeg.asset.json";
+import portrait from "@/assets/bilel-portrait.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -114,7 +114,7 @@ function Portfolio() {
           </div>
           <div className="relative mx-auto w-full max-w-[450px] lg:max-w-none">
             <div className="aspect-[4/5] overflow-hidden rounded-lg bg-secondary">
-              <img src={portrait.url} alt="Portrait of Bilel Arfaoui" className="h-full w-full object-cover object-center" fetchPriority="high" />
+              <img src={portrait} alt="Portrait of Bilel Arfaoui" className="h-full w-full object-cover object-center" fetchPriority="high" />
             </div>
             <div className="absolute -bottom-5 -left-3 rounded-md border border-border bg-surface px-5 py-4 shadow-sm sm:-left-6">
               <p className="mb-1 font-mono text-[10px] uppercase text-primary">Based in</p>
