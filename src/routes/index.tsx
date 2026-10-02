@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, Moon, Sun, ShieldCheck, Server, Network, LockKeyhole } from "lucide-react";
+import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, Globe, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/bilel-portrait.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Bilel — IT Systems Administration & Cybersecurity" },
-      { name: "description", content: "Meet Bilel and explore his focus on reliable IT systems administration and cybersecurity." },
-      { property: "og:title", content: "Bilel — Systems & Security" },
-      { property: "og:description", content: "A personal portfolio focused on IT systems administration and cybersecurity." },
+      { title: "Bilel Arfaoui — Systems Administration & Cybersecurity" },
+      { name: "description", content: "Bilel Arfaoui: IT graduate in systems administration, network hardening and security monitoring, completing a Master's in Cybersecurity." },
+      { property: "og:title", content: "Bilel Arfaoui — Systems & Security" },
+      { property: "og:description", content: "Experience, projects, skills and certifications in systems administration and cybersecurity." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -18,11 +18,49 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const focusAreas = [
-  { number: "01", icon: Server, title: "Systems administration", description: "Reliable operations, thoughtful maintenance, and the infrastructure that keeps everyday work moving." },
-  { number: "02", icon: Network, title: "Network infrastructure", description: "Connected environments designed with stability, visibility, and sensible access in mind." },
-  { number: "03", icon: LockKeyhole, title: "Cybersecurity", description: "A security-first approach to protecting systems, reducing risk, and staying prepared." },
+const experience = [
+  { role: "Technical Specialist", org: "EPAY", period: "Aug 2023 – Present", mode: "Remote", points: ["Diagnose complex technical issues and provide rapid, specialized support for MEA regional clients.", "Resolve software and operational inquiries in professional English with high efficiency.", "Maintain systems stability and resolve client issues promptly to meet SLA targets."] },
+  { role: "Systems & Infrastructure Intern", org: "Tunisair", period: "Mar 2023 – May 2023", mode: "Hybrid", points: ["Deployed a highly available virtualized pre-production environment for an Operational Center using VMware vSphere and Windows Server.", "Automated custom Windows image captures and silent installs with PowerShell, MDT and WDS.", "Hardened network infrastructure with pfSense, WSUS patching and Zabbix monitoring."] },
+  { role: "DevOps / Systems Monitoring Intern", org: "NetInfo", period: "Jan 2022 – Feb 2022", mode: "Remote", points: ["Implemented an end-to-end observability stack with Grafana and InfluxDB.", "Configured Telegraf metrics collection, Loki log aggregation and Promtail shipping agents."] },
 ];
+
+const projects = [
+  { icon: Shield, title: "Securing IT Infrastructure with pfSense", period: "Oct – Dec 2022", description: "Full network infrastructure on GNS3 deploying Log, Web, DNS, File and VoIP servers protected by pfSense." },
+  { icon: Boxes, title: "Dockerized IT Services & Nagios Monitoring", period: "Mar – May 2022", description: "Containerized FTP, a Hadoop cluster, MySQL and web services with Docker, supervised by Nagios." },
+  { icon: Activity, title: "High Availability Load Balancer", period: "Mar – Apr 2022", description: "Synchronized Apache server clusters with load balancing and Zabbix monitoring for highly available web services." },
+];
+
+const skills = [
+  { icon: Server, title: "Systems & Virtualization", items: ["Linux (Debian/Ubuntu)", "Windows Server (WDS/WSUS/MDT)", "VMware vSphere", "OpenStack", "Docker"] },
+  { icon: LockKeyhole, title: "Security & Networking", items: ["pfSense Firewall", "Wireshark", "Snort", "System Hardening", "Zabbix Monitoring"] },
+  { icon: Network, title: "Observability & Tools", items: ["Grafana", "InfluxDB", "Telegraf", "Loki", "Promtail", "Git", "GitHub Actions", "Nginx", "Apache"] },
+  { icon: Terminal, title: "Programming & Scripting", items: ["Python", "Bash", "PowerShell", "JavaScript", "Django", "HTML/CSS", "PHP", "MySQL", "NoSQL", "C"] },
+];
+
+const certifications = [
+  { name: "AWS Cloud Quest: Cloud Practitioner", issuer: "Amazon Web Services", date: "Apr 2026" },
+  { name: "Certified Cybersecurity Educator (CCEP)", issuer: "Red Team Leaders", date: "Mar 2026" },
+  { name: "Encryption & Cryptography (CECB)", issuer: "Red Team Leaders", date: "Feb 2026" },
+];
+
+const languages = [["Arabic", "Native"], ["English", "Fluent"], ["French", "Proficient"], ["German", "Basic"]];
+
+const contacts = [
+  { icon: Mail, label: "arfaouibilel@proton.me", href: "mailto:arfaouibilel@proton.me" },
+  { icon: Phone, label: "+216 51 028 799", href: "tel:+21651028799" },
+  { icon: Linkedin, label: "linkedin.com/in/bilelarfaoui", href: "https://linkedin.com/in/bilelarfaoui" },
+  { icon: Globe, label: "bilelarfaoui.netlify.app", href: "https://bilelarfaoui.netlify.app" },
+  { icon: MapPin, label: "Nabeul, Tunisia" },
+];
+
+function SectionHead({ index, label, title, intro }: { index: string; label: string; title: string; intro?: string }) {
+  return (
+    <div className="mb-14 grid gap-5 md:grid-cols-[1fr_2fr] md:gap-20">
+      <div><p className="mb-5 font-mono text-xs uppercase text-primary">{index} / {label}</p><h2 className="text-3xl font-semibold sm:text-4xl">{title}</h2></div>
+      {intro && <p className="max-w-xl self-end text-base leading-7 text-muted-foreground">{intro}</p>}
+    </div>
+  );
+}
 
 function Portfolio() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -47,13 +85,15 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6 lg:px-10">
-          <a href="#top" className="font-mono text-sm font-semibold text-primary transition-opacity hover:opacity-70" aria-label="Bilel, back to top">BILEL <span className="text-muted-foreground">//</span> OPS.SEC</a>
-          <nav aria-label="Main navigation" className="ml-auto hidden items-center gap-8 text-sm font-medium text-muted-foreground sm:flex">
+          <a href="#top" className="font-mono text-sm font-semibold text-primary transition-opacity hover:opacity-70" aria-label="Bilel Arfaoui, back to top">B.ARFAOUI <span className="text-muted-foreground">//</span> OPS.SEC</a>
+          <nav aria-label="Main navigation" className="ml-auto hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex">
             <a className="transition-colors hover:text-primary" href="#about">About</a>
-            <a className="transition-colors hover:text-primary" href="#focus">Focus areas</a>
-            <a className="transition-colors hover:text-primary" href="#connect">Connect</a>
+            <a className="transition-colors hover:text-primary" href="#experience">Experience</a>
+            <a className="transition-colors hover:text-primary" href="#projects">Projects</a>
+            <a className="transition-colors hover:text-primary" href="#skills">Skills</a>
+            <a className="transition-colors hover:text-primary" href="#connect">Contact</a>
           </nav>
-          <Button variant="theme" size="icon" onClick={toggleTheme} aria-label={ready ? `Switch to ${theme === "dark" ? "light" : "dark"} mode` : "Toggle color mode"} title={ready ? `Switch to ${theme === "dark" ? "light" : "dark"} mode` : "Toggle color mode"} className="ml-2 shrink-0 rounded-full">
+          <Button variant="theme" size="icon" onClick={toggleTheme} aria-label={ready ? `Switch to ${theme === "dark" ? "light" : "dark"} mode` : "Toggle color mode"} className="ml-2 shrink-0 rounded-full">
             {ready && theme === "dark" ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}
           </Button>
         </div>
@@ -63,57 +103,86 @@ function Portfolio() {
         <section className="mx-auto grid max-w-7xl items-center gap-8 px-6 pb-16 pt-10 lg:min-h-[720px] lg:grid-cols-[1.2fr_0.8fr] lg:gap-20 lg:px-10 lg:pb-24 lg:pt-20">
           <div className="max-w-2xl">
             <div className="mb-5 inline-flex items-center gap-2 rounded-md bg-accent px-3 py-2 font-mono text-[10px] font-medium uppercase text-accent-foreground sm:mb-7 sm:text-xs">
-              <span className="size-1.5 shrink-0 rounded-full bg-primary" /> IT Systems Administration / Cybersecurity
+              <span className="size-1.5 shrink-0 animate-pulse rounded-full bg-primary" /> Open to End-of-Study (EOS) projects
             </div>
-            <p className="mb-3 font-mono text-xs uppercase text-muted-foreground sm:mb-4">Hello, I’m Bilel.</p>
-            <h1 className="max-w-[13ch] text-balance text-[2.65rem] font-semibold leading-[1.05] sm:text-6xl lg:text-[4.5rem]">Building reliable systems. <span className="text-primary">Thinking security first.</span></h1>
-            <p className="mt-5 max-w-[54ch] text-base leading-7 text-muted-foreground sm:mt-8 sm:text-lg sm:leading-8">I’m interested in the space where dependable IT operations meet stronger cyber defense — keeping systems running while making them safer by design.</p>
+            <p className="mb-3 font-mono text-xs uppercase text-muted-foreground sm:mb-4">Hello, I’m Bilel Arfaoui.</p>
+            <h1 className="max-w-[14ch] text-balance text-[2.65rem] font-semibold leading-[1.05] sm:text-6xl lg:text-[4.5rem]">Systems admin. <span className="text-primary">Security mindset.</span></h1>
+            <p className="mt-5 max-w-[54ch] text-base leading-7 text-muted-foreground sm:mt-8 sm:text-lg sm:leading-8">IT graduate specializing in systems administration, network hardening and security monitoring — currently completing a Master’s in Cybersecurity.</p>
             <div className="mt-6 flex flex-wrap gap-3 sm:mt-9">
-              <Button asChild variant="portfolio" size="lg" className="h-11 px-5"><a href="#focus">Explore my focus <ArrowRight aria-hidden="true" /></a></Button>
-              <Button asChild variant="portfolioOutline" size="lg" className="h-11 px-5"><a href="#about">Get to know me <ArrowDown aria-hidden="true" /></a></Button>
+              <Button asChild variant="portfolio" size="lg" className="h-11 px-5"><a href="#connect">Get in touch <ArrowRight aria-hidden="true" /></a></Button>
+              <Button asChild variant="portfolioOutline" size="lg" className="h-11 px-5"><a href="#experience">View experience <ArrowDown aria-hidden="true" /></a></Button>
             </div>
           </div>
           <div className="relative mx-auto w-full max-w-[450px] lg:max-w-none">
             <div className="aspect-[4/5] overflow-hidden rounded-lg bg-secondary">
-              <img src={portrait.url} alt="Portrait of Bilel" className="h-full w-full object-cover object-center" fetchPriority="high" />
+              <img src={portrait.url} alt="Portrait of Bilel Arfaoui" className="h-full w-full object-cover object-center" fetchPriority="high" />
             </div>
             <div className="absolute -bottom-5 -left-3 rounded-md border border-border bg-surface px-5 py-4 shadow-sm sm:-left-6">
-              <p className="mb-1 font-mono text-[10px] uppercase text-primary">Perspective</p>
-              <p className="text-sm font-medium">Systems × Security</p>
+              <p className="mb-1 font-mono text-[10px] uppercase text-primary">Based in</p>
+              <p className="text-sm font-medium">Nabeul, Tunisia</p>
             </div>
           </div>
         </section>
 
-        <section className="border-y border-border bg-soft" aria-label="Areas of interest">
+        <section className="border-y border-border bg-soft" aria-label="Highlights">
           <div className="mx-auto grid max-w-7xl grid-cols-2 gap-7 px-6 py-12 md:grid-cols-4 lg:px-10">
-            {[
-              ["01", "IT operations"], ["02", "Infrastructure"], ["03", "Network thinking"], ["04", "Cyber defense"],
-            ].map(([number, label]) => <div key={number} className="border-l border-border pl-4"><p className="mb-2 font-mono text-xs text-primary">{number} /</p><p className="text-sm font-medium sm:text-base">{label}</p></div>)}
+            {[["2023 →", "Technical Specialist at EPAY"], ["3", "Professional roles"], ["3", "Certifications"], ["4", "Languages spoken"]].map(([n, label]) => <div key={label} className="border-l border-border pl-4"><p className="mb-2 font-mono text-xl font-semibold text-primary">{n}</p><p className="text-sm font-medium sm:text-base">{label}</p></div>)}
           </div>
         </section>
 
         <section id="about" className="scroll-mt-20 border-b border-border py-24 lg:py-32">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-[1fr_2fr] md:gap-20 lg:px-10">
-            <div><p className="mb-5 font-mono text-xs uppercase text-primary">01 / The perspective</p><h2 className="max-w-xs text-3xl font-semibold leading-tight sm:text-4xl">Technology works best when trust is built in.</h2></div>
+            <div><p className="mb-5 font-mono text-xs uppercase text-primary">01 / About me</p><h2 className="max-w-xs text-3xl font-semibold leading-tight sm:text-4xl">Infrastructure that runs. Defenses that hold.</h2></div>
             <div className="max-w-2xl space-y-6 text-lg leading-8 text-muted-foreground">
-              <p>My work is centered on IT systems administration and cybersecurity: two disciplines that are strongest when they work together, not separately.</p>
-              <p>I value practical problem-solving, clear documentation, and the kind of careful attention that helps keep digital environments both dependable and secure.</p>
-              <div className="flex items-center gap-3 border-t border-border pt-6 font-mono text-xs uppercase text-foreground"><ShieldCheck className="size-5 text-primary" aria-hidden="true" /> Reliability meets responsibility</div>
+              <p>I’m a highly motivated IT graduate specializing in systems administration, network hardening and security monitoring.</p>
+              <p>I’m currently completing a Master’s degree in Cybersecurity and actively seeking a challenging End-of-Study (EOS) / graduation project. I bring experience in virtualized infrastructure, automated deployments and technical support across international environments.</p>
+              <div className="grid gap-4 border-t border-border pt-6 sm:grid-cols-2">
+                <div><p className="font-mono text-[10px] uppercase text-primary">Education</p><p className="mt-1 text-base text-foreground">Master in Cybersecurity <span className="text-muted-foreground">(in progress)</span></p><p className="text-base text-foreground">Bachelor in IT — ISET Nabeul <span className="text-muted-foreground">(2020–2023)</span></p></div>
+                <div><p className="font-mono text-[10px] uppercase text-primary">Languages</p><p className="mt-1 text-base text-foreground">{languages.map(([l, lv]) => `${l} (${lv})`).join(" · ")}</p></div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="focus" className="scroll-mt-20 py-24 lg:py-32">
+        <section id="experience" className="scroll-mt-20 border-b border-border py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
-            <div className="mb-14 grid gap-5 md:grid-cols-[1fr_2fr] md:gap-20">
-              <div><p className="mb-5 font-mono text-xs uppercase text-primary">02 / Focus areas</p><h2 className="text-3xl font-semibold sm:text-4xl">Where I focus.</h2></div>
-              <p className="max-w-xl self-end text-base leading-7 text-muted-foreground">A connected view of the systems, networks, and security practices that underpin resilient digital environments.</p>
+            <SectionHead index="02" label="Experience" title="Where I’ve worked." intro="Support, infrastructure and monitoring roles across remote and hybrid environments." />
+            <div className="divide-y divide-border border-y border-border">
+              {experience.map((job) => <article key={job.org} className="grid gap-4 py-9 md:grid-cols-[1fr_2fr] md:gap-20">
+                <div><p className="font-mono text-xs uppercase text-muted-foreground">{job.period}</p><p className="mt-1 font-mono text-xs uppercase text-primary">{job.mode}</p></div>
+                <div><h3 className="text-xl font-semibold">{job.role} <span className="text-primary">— {job.org}</span></h3>
+                  <ul className="mt-4 space-y-2 text-muted-foreground">{job.points.map((p) => <li key={p} className="flex gap-3 leading-7"><span className="mt-3 size-1.5 shrink-0 rounded-full bg-primary" />{p}</li>)}</ul></div>
+              </article>)}
             </div>
+          </div>
+        </section>
+
+        <section id="projects" className="scroll-mt-20 border-b border-border bg-soft py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+            <SectionHead index="03" label="Projects" title="Academic & practical labs." intro="Hands-on builds covering firewalls, containers, monitoring and high availability." />
             <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
-              {focusAreas.map(({ number, icon: Icon, title, description }) => <article key={number} className="flex min-h-[290px] flex-col bg-surface p-7 lg:p-9">
-                <div className="mb-12 flex items-center justify-between"><Icon className="size-6 text-primary" strokeWidth={1.6} aria-hidden="true" /><span className="font-mono text-xs text-muted-foreground">{number} / 03</span></div>
+              {projects.map(({ icon: Icon, title, period, description }) => <article key={title} className="flex min-h-[260px] flex-col bg-surface p-7 lg:p-9">
+                <div className="mb-10 flex items-center justify-between"><Icon className="size-6 text-primary" strokeWidth={1.6} aria-hidden="true" /><span className="font-mono text-xs text-muted-foreground">{period}</span></div>
                 <h3 className="mb-4 text-xl font-semibold">{title}</h3><p className="text-sm leading-7 text-muted-foreground">{description}</p>
               </article>)}
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="scroll-mt-20 py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+            <SectionHead index="04" label="Skills" title="Technical toolkit." />
+            <div className="grid gap-6 md:grid-cols-2">
+              {skills.map(({ icon: Icon, title, items }) => <div key={title} className="rounded-lg border border-border bg-surface p-7">
+                <div className="mb-5 flex items-center gap-3"><Icon className="size-5 text-primary" aria-hidden="true" /><h3 className="font-semibold">{title}</h3></div>
+                <div className="flex flex-wrap gap-2">{items.map((s) => <span key={s} className="rounded-md bg-accent px-2.5 py-1 font-mono text-xs text-accent-foreground">{s}</span>)}</div>
+              </div>)}
+            </div>
+            <div className="mt-16">
+              <p className="mb-6 font-mono text-xs uppercase text-primary">Certifications</p>
+              <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
+                {certifications.map((c) => <div key={c.name} className="bg-surface p-7"><Award className="mb-6 size-5 text-primary" aria-hidden="true" /><h3 className="font-semibold">{c.name}</h3><p className="mt-2 text-sm text-muted-foreground">{c.issuer} · {c.date}</p></div>)}
+              </div>
             </div>
           </div>
         </section>
@@ -121,12 +190,14 @@ function Portfolio() {
 
       <footer id="connect" className="scroll-mt-20 border-t border-border bg-soft">
         <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 lg:px-10">
-          <p className="mb-5 font-mono text-xs uppercase text-primary">03 / Connect</p>
+          <p className="mb-5 font-mono text-xs uppercase text-primary">05 / Contact</p>
           <div className="flex flex-col justify-between gap-12 md:flex-row md:items-end">
-            <div><h2 className="max-w-[15ch] text-4xl font-semibold leading-tight sm:text-5xl">Let’s build what’s next, securely.</h2><p className="mt-5 max-w-md text-muted-foreground">Interested in systems administration or cybersecurity? Let’s connect.</p></div>
-            <div className="font-mono text-xs uppercase text-muted-foreground">Bilel / Systems & Security</div>
+            <div><h2 className="max-w-[15ch] text-4xl font-semibold leading-tight sm:text-5xl">Let’s build what’s next, securely.</h2><p className="mt-5 max-w-md text-muted-foreground">Looking for an End-of-Study project in systems or cybersecurity. Let’s talk.</p></div>
+            <ul className="space-y-3 text-sm">
+              {contacts.map(({ icon: Icon, label, href }) => <li key={label} className="flex items-center gap-3"><Icon className="size-4 text-primary" aria-hidden="true" />{href ? <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="transition-colors hover:text-primary">{label}</a> : <span>{label}</span>}</li>)}
+            </ul>
           </div>
-          <div className="mt-24 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7 font-mono text-[10px] uppercase text-muted-foreground"><span>© {new Date().getFullYear()} Bilel</span><a href="#top" className="transition-colors hover:text-primary">Back to top ↑</a></div>
+          <div className="mt-24 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7 font-mono text-[10px] uppercase text-muted-foreground"><span>© {new Date().getFullYear()} Bilel Arfaoui</span><a href="#top" className="transition-colors hover:text-primary">Back to top ↑</a></div>
         </div>
       </footer>
     </div>
