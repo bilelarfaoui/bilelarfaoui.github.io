@@ -84,7 +84,7 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6 lg:px-10">
-          <a href="#top" className="font-mono text-sm font-semibold text-primary transition-opacity hover:opacity-70" aria-label="Bilel Arfaoui, back to top">B.ARFAOUI <span className="text-muted-foreground">//</span> OPS.SEC</a>
+          <a href="#top" className="font-mono text-sm font-semibold text-primary transition-opacity hover:opacity-70" aria-label="Bilel Arfaoui, back to top">B.ARFAOUI <span className="text-muted-foreground">//</span> TECH.SEC</a>
           <nav aria-label="Main navigation" className="ml-auto hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex">
             <a className="transition-colors hover:text-primary" href="#about">About</a>
             <a className="transition-colors hover:text-primary" href="#experience">Experience</a>
