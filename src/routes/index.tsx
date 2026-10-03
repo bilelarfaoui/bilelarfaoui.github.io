@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, Globe, MapPin } from "lucide-react";
+import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, MapPin, FileText, ExternalLink, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/bilel-portrait.jpeg";
+import resume from "@/assets/bilel-resume.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,7 +22,8 @@ export const Route = createFileRoute("/")({
 const experience = [
   { role: "Technical Specialist", org: "EPAY", period: "Aug 2023 – Present", mode: "Remote", points: ["Diagnose complex technical issues and provide rapid, specialized support for MEA regional clients.", "Resolve software and operational inquiries in professional English with high efficiency.", "Maintain systems stability and resolve client issues promptly to keep client operations running smoothly."] },
   { role: "Systems & Infrastructure Intern", org: "Tunisair", period: "Mar 2023 – May 2023", mode: "Hybrid", points: ["Deployed a highly available virtualized pre-production environment for an Operational Center using VMware vSphere and Windows Server.", "Automated custom Windows image captures and silent installs with PowerShell, MDT and WDS.", "Hardened network infrastructure with pfSense, WSUS patching and Zabbix monitoring."] },
-  { role: "DevOps / Systems Monitoring Intern", org: "NetInfo", period: "Jan 2022 – Feb 2022", mode: "Remote", points: ["Implemented an end-to-end observability stack with Grafana and InfluxDB.", "Configured Telegraf metrics collection, Loki log aggregation and Promtail shipping agents."] },
+  { role: "DevOps & Monitoring Intern", org: "Medis", period: "Jan 2022 – Feb 2022", mode: "Internship", points: ["Implemented an end-to-end Grafana monitoring solution with InfluxDB for server health and metric tracking.", "Deployed Telegraf plugins, Loki log aggregation and Promtail shipping agents."] },
+  { role: "Software Development Intern", org: "NetInfo", period: "Aug 2021 – Sep 2021", mode: "Internship", points: ["Participated in building an intelligent chatbot using the Django web framework.", "Integrated PyTorch, NumPy, NLTK and ChatterBot for automated natural-language responses."] },
 ];
 
 const projects = [
@@ -38,9 +40,9 @@ const skills = [
 ];
 
 const certifications = [
-  { name: "AWS Cloud Quest: Cloud Practitioner", issuer: "Amazon Web Services", date: "Apr 2026" },
-  { name: "Certified Cybersecurity Educator (CCEP)", issuer: "Red Team Leaders", date: "Mar 2026" },
-  { name: "Encryption & Cryptography (CECB)", issuer: "Red Team Leaders", date: "Feb 2026" },
+  { name: "AWS Cloud Quest: Cloud Practitioner", issuer: "Amazon Web Services", date: "Apr 2026", href: "https://www.credly.com/badges/58ec243b-840d-4ef3-9638-c25a00be3d97" },
+  { name: "Certified Cybersecurity Educator (CCEP)", issuer: "Red Team Leaders", date: "Mar 2026", href: "https://courses.redteamleaders.com/exam-completion/624f5357e86bd2c9" },
+  { name: "Encryption & Cryptography (CECB)", issuer: "Red Team Leaders", date: "Feb 2026", href: "https://courses.redteamleaders.com/exam-completion/bcfd53b37fdca13f" },
 ];
 
 const languages = [["Arabic", "Native"], ["English", "Fluent"], ["French", "Proficient"], ["German", "Basic"]];
@@ -90,12 +92,21 @@ function Portfolio() {
             <a className="transition-colors hover:text-primary" href="#experience">Experience</a>
             <a className="transition-colors hover:text-primary" href="#projects">Projects</a>
             <a className="transition-colors hover:text-primary" href="#skills">Skills</a>
+            <a className="transition-colors hover:text-primary" href="#resume">Résumé</a>
             <a className="transition-colors hover:text-primary" href="#connect">Contact</a>
           </nav>
           <Button variant="theme" size="icon" onClick={toggleTheme} aria-label={ready ? `Switch to ${theme === "dark" ? "light" : "dark"} mode` : "Toggle color mode"} className="ml-2 shrink-0 rounded-full">
             {ready && theme === "dark" ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}
           </Button>
         </div>
+        <nav aria-label="Mobile navigation" className="mx-auto flex max-w-7xl gap-6 overflow-x-auto whitespace-nowrap border-t border-border px-6 py-3 text-sm font-medium text-muted-foreground md:hidden">
+          <a className="shrink-0 hover:text-primary" href="#about">About</a>
+          <a className="shrink-0 hover:text-primary" href="#experience">Experience</a>
+          <a className="shrink-0 hover:text-primary" href="#projects">Projects</a>
+          <a className="shrink-0 hover:text-primary" href="#skills">Skills</a>
+          <a className="shrink-0 hover:text-primary" href="#resume">Résumé</a>
+          <a className="shrink-0 hover:text-primary" href="#connect">Contact</a>
+        </nav>
       </header>
 
       <main id="top">
@@ -125,11 +136,11 @@ function Portfolio() {
 
         <section className="border-y border-border bg-soft" aria-label="Highlights">
           <div className="mx-auto grid max-w-7xl grid-cols-2 gap-7 px-6 py-12 md:grid-cols-4 lg:px-10">
-            {[["2023 →", "Technical Specialist at EPAY"], ["3", "Professional roles"], ["3", "Certifications"], ["4", "Languages spoken"]].map(([n, label]) => <div key={label} className="border-l border-border pl-4"><p className="mb-2 font-mono text-xl font-semibold text-primary">{n}</p><p className="text-sm font-medium sm:text-base">{label}</p></div>)}
+            {[["2023 →", "Technical Specialist at EPAY"], ["4", "Professional roles"], ["3", "Certifications"], ["4", "Languages spoken"]].map(([n, label]) => <div key={label} className="border-l border-border pl-4"><p className="mb-2 font-mono text-xl font-semibold text-primary">{n}</p><p className="text-sm font-medium sm:text-base">{label}</p></div>)}
           </div>
         </section>
 
-        <section id="about" className="scroll-mt-20 border-b border-border py-24 lg:py-32">
+        <section id="about" className="scroll-mt-28 border-b border-border py-24 md:scroll-mt-20 lg:py-32">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-[1fr_2fr] md:gap-20 lg:px-10">
             <div><p className="mb-5 font-mono text-xs uppercase text-primary">01 / About me</p><h2 className="max-w-xs text-3xl font-semibold leading-tight sm:text-4xl">Support that holds. Defenses that hold.</h2></div>
             <div className="max-w-2xl space-y-6 text-lg leading-8 text-muted-foreground">
@@ -143,7 +154,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="experience" className="scroll-mt-20 border-b border-border py-24 lg:py-32">
+        <section id="experience" className="scroll-mt-28 border-b border-border py-24 md:scroll-mt-20 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="02" label="Experience" title="Where I’ve worked." intro="Support, infrastructure and monitoring roles across remote and hybrid environments." />
             <div className="divide-y divide-border border-y border-border">
@@ -156,7 +167,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="projects" className="scroll-mt-20 border-b border-border bg-soft py-24 lg:py-32">
+        <section id="projects" className="scroll-mt-28 border-b border-border bg-soft py-24 md:scroll-mt-20 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="03" label="Projects" title="Academic & practical labs." intro="Hands-on builds covering firewalls, containers, monitoring and high availability." />
             <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
@@ -168,7 +179,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="skills" className="scroll-mt-20 py-24 lg:py-32">
+        <section id="skills" className="scroll-mt-28 py-24 md:scroll-mt-20 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="04" label="Skills" title="Technical toolkit." />
             <div className="grid gap-6 md:grid-cols-2">
@@ -180,16 +191,28 @@ function Portfolio() {
             <div className="mt-16">
               <p className="mb-6 font-mono text-xs uppercase text-primary">Certifications</p>
               <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
-                {certifications.map((c) => <div key={c.name} className="bg-surface p-7"><Award className="mb-6 size-5 text-primary" aria-hidden="true" /><h3 className="font-semibold">{c.name}</h3><p className="mt-2 text-sm text-muted-foreground">{c.issuer} · {c.date}</p></div>)}
+                {certifications.map((c) => <div key={c.name} className="flex flex-col bg-surface p-7"><Award className="mb-6 size-5 text-primary" aria-hidden="true" /><h3 className="font-semibold">{c.name}</h3><p className="mt-2 text-sm text-muted-foreground">{c.issuer} · {c.date}</p><Button asChild variant="link" className="mt-5 w-fit p-0"><a href={c.href} target="_blank" rel="noopener noreferrer">Verify certificate <ExternalLink aria-hidden="true" /></a></Button></div>)}
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="resume" className="scroll-mt-28 border-t border-border bg-soft py-24 md:scroll-mt-20 lg:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+            <SectionHead index="05" label="Résumé" title="My résumé." />
+            <div className="flex flex-col gap-6 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-4"><FileText className="size-8 shrink-0 text-primary" aria-hidden="true" /><div><h3 className="font-semibold">Bilel Arfaoui — Résumé</h3><p className="text-sm text-muted-foreground">PDF document</p></div></div>
+              <div className="flex flex-wrap gap-3">
+                <Button asChild variant="portfolio" size="lg"><a href={resume.url} target="_blank" rel="noopener noreferrer">View résumé <ExternalLink aria-hidden="true" /></a></Button>
+                <Button asChild variant="portfolioOutline" size="lg"><a href={resume.url} download="Bilel_Arfaoui_Resume.pdf">Download <Download aria-hidden="true" /></a></Button>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer id="connect" className="scroll-mt-20 border-t border-border bg-soft">
+      <footer id="connect" className="scroll-mt-28 border-t border-border bg-soft md:scroll-mt-20">
         <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 lg:px-10">
-          <p className="mb-5 font-mono text-xs uppercase text-primary">05 / Contact</p>
+          <p className="mb-5 font-mono text-xs uppercase text-primary">06 / Contact</p>
           <div className="flex flex-col justify-between gap-12 md:flex-row md:items-end">
             <div><h2 className="max-w-[15ch] text-4xl font-semibold leading-tight sm:text-5xl">Let’s build what’s next, securely.</h2><p className="mt-5 max-w-md text-muted-foreground">Available to get hired remotely or to relocate — open to technical, IT support and cybersecurity roles. Let’s talk.</p></div>
             <ul className="space-y-3 text-sm">
