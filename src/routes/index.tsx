@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, MapPin, FileText, ExternalLink, Download } from "lucide-react";
+import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, MapPin, FileText, Download, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/bilel-portrait.jpeg";
 import resume from "@/assets/bilel-resume.pdf.asset.json";
@@ -66,6 +66,7 @@ function SectionHead({ index, label, title, intro }: { index: string; label: str
 function Portfolio() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [ready, setReady] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   useEffect(() => {
     const saved = window.localStorage.getItem("bilel-theme");
@@ -75,6 +76,19 @@ function Portfolio() {
     setReady(true);
   }, []);
 
+  useEffect(() => {
+    if (!resumeOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setResumeOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [resumeOpen]);
+
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
@@ -83,7 +97,7 @@ function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+    <div id="top" className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6 lg:px-10">
           <a href="#top" className="font-mono text-sm font-semibold text-primary transition-opacity hover:opacity-70" aria-label="Bilel Arfaoui, back to top">B.ARFAOUI <span className="text-muted-foreground">//</span> TECH.SEC</a>
@@ -92,7 +106,7 @@ function Portfolio() {
             <a className="transition-colors hover:text-primary" href="#experience">Experience</a>
             <a className="transition-colors hover:text-primary" href="#projects">Projects</a>
             <a className="transition-colors hover:text-primary" href="#skills">Skills</a>
-            <a className="transition-colors hover:text-primary" href="#resume">Résumé</a>
+            <a className="transition-colors hover:text-primary" href="#resume">Resume</a>
             <a className="transition-colors hover:text-primary" href="#connect">Contact</a>
           </nav>
           <Button variant="theme" size="icon" onClick={toggleTheme} aria-label={ready ? `Switch to ${theme === "dark" ? "light" : "dark"} mode` : "Toggle color mode"} className="ml-2 shrink-0 rounded-full">
@@ -104,13 +118,13 @@ function Portfolio() {
           <a className="shrink-0 hover:text-primary" href="#experience">Experience</a>
           <a className="shrink-0 hover:text-primary" href="#projects">Projects</a>
           <a className="shrink-0 hover:text-primary" href="#skills">Skills</a>
-          <a className="shrink-0 hover:text-primary" href="#resume">Résumé</a>
+          <a className="shrink-0 hover:text-primary" href="#resume">Resume</a>
           <a className="shrink-0 hover:text-primary" href="#connect">Contact</a>
         </nav>
       </header>
 
-      <main id="top">
-        <section className="mx-auto grid max-w-7xl items-center gap-8 px-6 pb-16 pt-10 lg:min-h-[720px] lg:grid-cols-[1.2fr_0.8fr] lg:gap-20 lg:px-10 lg:pb-24 lg:pt-20">
+      <main>
+        <section className="mx-auto grid max-w-7xl items-center gap-8 px-6 pb-16 pt-10 lg:min-h-[620px] lg:grid-cols-[1.2fr_0.8fr] lg:gap-16 lg:px-10 lg:pb-20 lg:pt-16">
           <div className="max-w-2xl">
             <div className="mb-5 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-md bg-accent px-3 py-2 font-mono text-[10px] font-medium uppercase text-accent-foreground sm:mb-7 sm:text-xs">
               <span className="size-1.5 shrink-0 animate-pulse rounded-full bg-primary" /> Available for hire — remote or relocation
@@ -123,8 +137,8 @@ function Portfolio() {
               <Button asChild variant="portfolioOutline" size="lg" className="h-11 px-5"><a href="#experience">View experience <ArrowDown aria-hidden="true" /></a></Button>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-[450px] lg:max-w-none">
-            <div className="aspect-[4/5] overflow-hidden rounded-lg bg-secondary">
+          <div className="relative mx-auto w-full max-w-[260px] sm:max-w-[310px] lg:max-w-[330px]">
+            <div className="aspect-[4/4.5] overflow-hidden rounded-lg bg-secondary">
               <img src={portrait} alt="Portrait of Bilel Arfaoui" className="h-full w-full object-cover object-center" fetchPriority="high" />
             </div>
             <div className="absolute -bottom-5 -left-3 rounded-md border border-border bg-surface px-5 py-4 shadow-sm sm:-left-6">
@@ -140,7 +154,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="about" className="scroll-mt-28 border-b border-border py-24 md:scroll-mt-20 lg:py-32">
+        <section id="about" className="scroll-mt-[110px] border-b border-border py-24 md:scroll-mt-16 lg:py-32">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-[1fr_2fr] md:gap-20 lg:px-10">
             <div><p className="mb-5 font-mono text-xs uppercase text-primary">01 / About me</p><h2 className="max-w-xs text-3xl font-semibold leading-tight sm:text-4xl">Support that holds. Defenses that hold.</h2></div>
             <div className="max-w-2xl space-y-6 text-lg leading-8 text-muted-foreground">
@@ -154,7 +168,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="experience" className="scroll-mt-28 border-b border-border py-24 md:scroll-mt-20 lg:py-32">
+        <section id="experience" className="scroll-mt-[110px] border-b border-border py-24 md:scroll-mt-16 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="02" label="Experience" title="Where I’ve worked." intro="Support, infrastructure and monitoring roles across remote and hybrid environments." />
             <div className="divide-y divide-border border-y border-border">
@@ -167,7 +181,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="projects" className="scroll-mt-28 border-b border-border bg-soft py-24 md:scroll-mt-20 lg:py-32">
+        <section id="projects" className="scroll-mt-[110px] border-b border-border bg-soft py-24 md:scroll-mt-16 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="03" label="Projects" title="Academic & practical labs." intro="Hands-on builds covering firewalls, containers, monitoring and high availability." />
             <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
@@ -179,7 +193,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="skills" className="scroll-mt-28 py-24 md:scroll-mt-20 lg:py-32">
+        <section id="skills" className="scroll-mt-[110px] py-24 md:scroll-mt-16 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="04" label="Skills" title="Technical toolkit." />
             <div className="grid gap-6 md:grid-cols-2">
@@ -196,13 +210,13 @@ function Portfolio() {
             </div>
           </div>
         </section>
-        <section id="resume" className="scroll-mt-28 border-t border-border bg-soft py-24 md:scroll-mt-20 lg:py-32">
+        <section id="resume" className="scroll-mt-[110px] border-t border-border bg-soft py-24 md:scroll-mt-16 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
-            <SectionHead index="05" label="Résumé" title="My résumé." />
+            <SectionHead index="05" label="Resume" title="My resume." />
             <div className="flex flex-col gap-6 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-4"><FileText className="size-8 shrink-0 text-primary" aria-hidden="true" /><div><h3 className="font-semibold">Bilel Arfaoui — Résumé</h3><p className="text-sm text-muted-foreground">PDF document</p></div></div>
+              <div className="flex items-center gap-4"><FileText className="size-8 shrink-0 text-primary" aria-hidden="true" /><div><h3 className="font-semibold">Bilel Arfaoui — Resume</h3><p className="text-sm text-muted-foreground">PDF document</p></div></div>
               <div className="flex flex-wrap gap-3">
-                <Button asChild variant="portfolio" size="lg"><a href={resume.url} target="_blank" rel="noopener noreferrer">View résumé <ExternalLink aria-hidden="true" /></a></Button>
+                <Button variant="portfolio" size="lg" onClick={() => setResumeOpen(true)}>View resume <FileText aria-hidden="true" /></Button>
                 <Button asChild variant="portfolioOutline" size="lg"><a href={resume.url} download="Bilel_Arfaoui_Resume.pdf">Download <Download aria-hidden="true" /></a></Button>
               </div>
             </div>
@@ -210,7 +224,7 @@ function Portfolio() {
         </section>
       </main>
 
-      <footer id="connect" className="scroll-mt-28 border-t border-border bg-soft md:scroll-mt-20">
+      <footer id="connect" className="min-h-[calc(100vh-110px)] scroll-mt-[110px] border-t border-border bg-soft md:min-h-[calc(100vh-64px)] md:scroll-mt-16">
         <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 lg:px-10">
           <p className="mb-5 font-mono text-xs uppercase text-primary">06 / Contact</p>
           <div className="flex flex-col justify-between gap-12 md:flex-row md:items-end">
@@ -219,9 +233,23 @@ function Portfolio() {
               {contacts.map(({ icon: Icon, label, href }) => <li key={label} className="flex items-center gap-3"><Icon className="size-4 text-primary" aria-hidden="true" />{href ? <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="transition-colors hover:text-primary">{label}</a> : <span>{label}</span>}</li>)}
             </ul>
           </div>
-          <div className="mt-24 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7 font-mono text-[10px] uppercase text-muted-foreground"><span>© {new Date().getFullYear()} Bilel Arfaoui</span><a href="#top" className="transition-colors hover:text-primary">Back to top ↑</a></div>
+           <div className="mt-24 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7 font-mono text-[10px] uppercase text-muted-foreground"><span>© {new Date().getFullYear()} Bilel Arfaoui</span><a href="#top" onClick={(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); window.history.replaceState(null, "", window.location.pathname + window.location.search); }} className="transition-colors hover:text-primary">Back to top ↑</a></div>
         </div>
       </footer>
+      {resumeOpen && (
+        <div role="presentation" className="fixed inset-0 z-[60] flex items-center justify-center bg-foreground/70 p-3 sm:p-6" onClick={() => setResumeOpen(false)}>
+          <div role="dialog" aria-modal="true" aria-label="Bilel Arfaoui resume" className="flex h-full max-h-[900px] w-full max-w-4xl flex-col overflow-hidden rounded-lg bg-background shadow-xl" onClick={(event) => event.stopPropagation()}>
+            <div className="flex h-14 shrink-0 items-center justify-between gap-4 border-b border-border px-4 sm:px-6">
+              <h2 className="min-w-0 truncate font-semibold">Bilel Arfaoui — Resume</h2>
+              <div className="flex items-center gap-2">
+                <Button asChild variant="ghost" size="icon" aria-label="Download resume"><a href={resume.url} download="Bilel_Arfaoui_Resume.pdf"><Download aria-hidden="true" /></a></Button>
+                <Button variant="ghost" size="icon" aria-label="Close resume" onClick={() => setResumeOpen(false)}><X aria-hidden="true" /></Button>
+              </div>
+            </div>
+            <iframe title="Bilel Arfaoui resume PDF" src={resume.url} className="min-h-0 w-full flex-1 bg-surface" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
