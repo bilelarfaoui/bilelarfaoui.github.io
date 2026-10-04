@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, MapPin, FileText, Download, X } from "lucide-react";
+import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, MapPin, FileText, ExternalLink, Download, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/bilel-portrait.jpeg";
 import resume from "@/assets/bilel-resume.pdf.asset.json";
+import resumePreview from "@/assets/bilel-resume-preview.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -246,7 +247,9 @@ function Portfolio() {
                 <Button variant="ghost" size="icon" aria-label="Close resume" onClick={() => setResumeOpen(false)}><X aria-hidden="true" /></Button>
               </div>
             </div>
-            <iframe title="Bilel Arfaoui resume PDF" src={resume.url} className="min-h-0 w-full flex-1 bg-surface" />
+            <div className="min-h-0 flex-1 overflow-auto bg-soft p-3 sm:p-6">
+              <img src={resumePreview.url} alt="Page 1 of Bilel Arfaoui's resume" className="mx-auto w-full max-w-[740px] bg-surface shadow-sm" />
+            </div>
           </div>
         </div>
       )}
