@@ -126,7 +126,7 @@ function Portfolio() {
 
       <main>
         <section className="mx-auto flex max-w-7xl flex-col px-6 pb-16 pt-8 lg:min-h-[620px] lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-16 lg:px-10 lg:pb-20 lg:pt-16">
-          <div className="order-2 max-w-2xl lg:order-1">
+          <div className="max-w-2xl">
             <div className="mb-5 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-md bg-accent px-3 py-2 font-mono text-[10px] font-medium uppercase text-accent-foreground sm:mb-7 sm:text-xs">
               <span className="size-1.5 shrink-0 animate-pulse rounded-full bg-primary" /> Available for hire — remote or relocation
             </div>
