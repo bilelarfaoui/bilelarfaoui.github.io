@@ -126,7 +126,7 @@ function Portfolio() {
 
       <main>
         <section className="mx-auto flex max-w-7xl flex-col px-6 pb-16 pt-8 lg:min-h-[620px] lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-16 lg:px-10 lg:pb-20 lg:pt-16">
-          <div className="order-2 max-w-2xl lg:order-1">
+          <div className="max-w-2xl">
             <div className="mb-5 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-md bg-accent px-3 py-2 font-mono text-[10px] font-medium uppercase text-accent-foreground sm:mb-7 sm:text-xs">
               <span className="size-1.5 shrink-0 animate-pulse rounded-full bg-primary" /> Available for hire — remote or relocation
             </div>
@@ -138,16 +138,9 @@ function Portfolio() {
               <Button asChild variant="portfolioOutline" size="lg" className="h-11 px-5"><a href="#experience">View experience <ArrowDown aria-hidden="true" /></a></Button>
             </div>
           </div>
-          <div className="order-1 mb-8 flex justify-end lg:order-2 lg:mb-0 lg:mt-0">
-            <div className="relative w-[150px] sm:w-[210px] lg:w-full lg:max-w-[290px]">
-              <div className="absolute -right-2 -top-2 hidden h-full w-full rounded-lg border border-primary/40 sm:block" aria-hidden="true" />
-              <div className="relative aspect-[4/4.5] overflow-hidden rounded-lg bg-secondary">
-                <img src={portrait} alt="Portrait of Bilel Arfaoui" className="h-full w-full object-cover object-center" fetchPriority="high" />
-              </div>
-              <div className="absolute -bottom-4 right-3 rounded-md border border-border bg-surface px-3 py-2.5 shadow-sm sm:-bottom-5 sm:right-5 sm:px-5 sm:py-4">
-                <p className="mb-0.5 font-mono text-[10px] uppercase text-primary">Based in</p>
-                <p className="text-xs font-medium sm:text-sm">Nabeul, Tunisia</p>
-              </div>
+          <div className="mx-auto w-full max-w-[260px] sm:max-w-[310px] lg:max-w-[330px]">
+            <div className="overflow-hidden rounded-lg border border-border bg-secondary">
+              <img src={portrait} alt="Portrait of Bilel Arfaoui" className="aspect-[4/4.5] h-full w-full object-cover object-center" fetchPriority="high" />
             </div>
           </div>
         </section>
