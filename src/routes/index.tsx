@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, MapPin, FileText, Download, X } from "lucide-react";
+import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, MapPin, FileText, ExternalLink, Download, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/bilel-portrait.jpeg";
 import resume from "@/assets/bilel-resume.pdf.asset.json";
