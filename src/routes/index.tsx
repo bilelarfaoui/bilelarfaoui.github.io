@@ -138,7 +138,7 @@ function Portfolio() {
               <Button asChild variant="portfolioOutline" size="lg" className="h-11 px-5"><a href="#experience">View experience <ArrowDown aria-hidden="true" /></a></Button>
             </div>
           </div>
-          <div className="order-1 mt-2 flex justify-end lg:order-2 lg:mt-0">
+          <div className="order-1 mb-8 flex justify-end lg:order-2 lg:mb-0 lg:mt-0">
             <div className="relative w-[150px] sm:w-[210px] lg:w-full lg:max-w-[290px]">
               <div className="absolute -right-2 -top-2 hidden h-full w-full rounded-lg border border-primary/40 sm:block" aria-hidden="true" />
               <div className="relative aspect-[4/4.5] overflow-hidden rounded-lg bg-secondary">
