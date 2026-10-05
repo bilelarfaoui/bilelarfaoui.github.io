@@ -57,7 +57,7 @@ const contacts = [
 
 function SectionHead({ index, label, title, intro }: { index: string; label: string; title: string; intro?: string }) {
   return (
-    <div className="mb-14 grid gap-5 md:grid-cols-[1fr_2fr] md:gap-20">
+    <div className="mb-10 grid gap-5 md:mb-12 md:grid-cols-[1fr_2fr] md:gap-20">
       <div><p className="mb-5 font-mono text-xs uppercase text-primary">{index} / {label}</p><h2 className="text-3xl font-semibold sm:text-4xl">{title}</h2></div>
       {intro && <p className="max-w-xl self-end text-base leading-7 text-muted-foreground">{intro}</p>}
     </div>
@@ -154,7 +154,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="about" className="scroll-mt-[110px] border-b border-border py-24 md:scroll-mt-16 lg:py-32">
+        <section id="about" className="scroll-mt-[110px] border-b border-border py-16 md:scroll-mt-16 md:py-20 lg:py-24">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-[1fr_2fr] md:gap-20 lg:px-10">
             <div><p className="mb-5 font-mono text-xs uppercase text-primary">01 / About me</p><h2 className="max-w-xs text-3xl font-semibold leading-tight sm:text-4xl">Support that holds. Defenses that hold.</h2></div>
             <div className="max-w-2xl space-y-6 text-lg leading-8 text-muted-foreground">
@@ -168,7 +168,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="experience" className="scroll-mt-[110px] border-b border-border py-24 md:scroll-mt-16 lg:py-32">
+        <section id="experience" className="scroll-mt-[110px] border-b border-border py-16 md:scroll-mt-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="02" label="Experience" title="Where I’ve worked." intro="Support, infrastructure and monitoring roles across remote and hybrid environments." />
             <div className="divide-y divide-border border-y border-border">
@@ -181,7 +181,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="projects" className="scroll-mt-[110px] border-b border-border bg-soft py-24 md:scroll-mt-16 lg:py-32">
+        <section id="projects" className="scroll-mt-[110px] border-b border-border bg-soft py-16 md:scroll-mt-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="03" label="Projects" title="Academic & practical labs." intro="Hands-on builds covering firewalls, containers, monitoring and high availability." />
             <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
@@ -193,7 +193,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="skills" className="scroll-mt-[110px] py-24 md:scroll-mt-16 lg:py-32">
+        <section id="skills" className="scroll-mt-[110px] py-16 md:scroll-mt-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="04" label="Skills" title="Technical toolkit." />
             <div className="grid gap-6 md:grid-cols-2">
@@ -210,7 +210,7 @@ function Portfolio() {
             </div>
           </div>
         </section>
-        <section id="resume" className="scroll-mt-[110px] border-t border-border bg-soft py-24 md:scroll-mt-16 lg:py-32">
+        <section id="resume" className="scroll-mt-[110px] border-t border-border bg-soft py-16 md:scroll-mt-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="05" label="Resume" title="My resume." />
             <div className="flex flex-col gap-6 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
@@ -224,8 +224,8 @@ function Portfolio() {
         </section>
       </main>
 
-      <footer id="connect" className="min-h-[calc(100vh-110px)] scroll-mt-[110px] border-t border-border bg-soft md:min-h-[calc(100vh-64px)] md:scroll-mt-16">
-        <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 lg:px-10">
+      <footer id="connect" className="scroll-mt-[110px] border-t border-border bg-soft md:scroll-mt-16">
+        <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 lg:px-10">
           <p className="mb-5 font-mono text-xs uppercase text-primary">06 / Contact</p>
           <div className="flex flex-col justify-between gap-12 md:flex-row md:items-end">
             <div><h2 className="max-w-[15ch] text-4xl font-semibold leading-tight sm:text-5xl">Let’s build what’s next, securely.</h2><p className="mt-5 max-w-md text-muted-foreground">Available to get hired remotely or to relocate — open to technical, IT support and cybersecurity roles. Let’s talk.</p></div>
@@ -233,7 +233,7 @@ function Portfolio() {
               {contacts.map(({ icon: Icon, label, href }) => <li key={label} className="flex items-center gap-3"><Icon className="size-4 text-primary" aria-hidden="true" />{href ? <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="transition-colors hover:text-primary">{label}</a> : <span>{label}</span>}</li>)}
             </ul>
           </div>
-           <div className="mt-24 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7 font-mono text-[10px] uppercase text-muted-foreground"><span>© {new Date().getFullYear()} Bilel Arfaoui</span><a href="#top" onClick={(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); window.history.replaceState(null, "", window.location.pathname + window.location.search); }} className="transition-colors hover:text-primary">Back to top ↑</a></div>
+           <div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 font-mono text-[10px] uppercase text-muted-foreground"><span>© {new Date().getFullYear()} Bilel Arfaoui</span><a href="#top" onClick={(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); window.history.replaceState(null, "", window.location.pathname + window.location.search); }} className="transition-colors hover:text-primary">Back to top ↑</a></div>
         </div>
       </footer>
       {resumeOpen && (
