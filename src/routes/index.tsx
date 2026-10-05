@@ -138,9 +138,12 @@ function Portfolio() {
               <Button asChild variant="portfolioOutline" size="lg" className="h-11 px-5"><a href="#experience">View experience <ArrowDown aria-hidden="true" /></a></Button>
             </div>
           </div>
-          <div className="mx-auto mt-16 w-[clamp(210px,58vw,300px)] sm:mt-24 sm:w-[clamp(250px,36vw,330px)] lg:mt-0 lg:w-full lg:max-w-[min(36vw,430px)]">
+          <div className="relative mx-auto mt-16 w-[clamp(240px,68vw,340px)] sm:mt-24 sm:w-[clamp(290px,44vw,400px)] lg:mt-0 lg:w-full lg:max-w-[min(42vw,520px)]">
             <div className="overflow-hidden rounded-lg border border-border bg-secondary">
               <img src={portrait} alt="Portrait of Bilel Arfaoui" className="aspect-[4/4.5] h-full w-full object-cover object-center" fetchPriority="high" />
+            </div>
+            <div className="absolute -bottom-4 right-0 flex items-center gap-2 rounded-md border border-border bg-background/95 px-3 py-2 font-mono text-[10px] uppercase text-foreground shadow-sm backdrop-blur sm:-bottom-5 sm:-right-3 sm:text-xs">
+              <MapPin className="size-3.5 shrink-0 text-primary" aria-hidden="true" /> Based in Nabeul, Tunisia
             </div>
           </div>
         </section>
