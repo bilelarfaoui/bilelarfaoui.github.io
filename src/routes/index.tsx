@@ -171,8 +171,8 @@ function Portfolio() {
         <section id="experience" className="scroll-mt-[110px] border-b border-border py-16 md:scroll-mt-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="02" label="Experience" title="Where I’ve worked." intro="Support, infrastructure and monitoring roles across remote and hybrid environments." />
-            <div className="divide-y divide-border border-y border-border">
-              {experience.map((job) => <article key={job.org} className="grid gap-4 py-9 md:grid-cols-[1fr_2fr] md:gap-20">
+            <div className="divide-y divide-border border-t border-border">
+              {experience.map((job, i) => <article key={job.org} className={`grid gap-4 pt-9 md:grid-cols-[1fr_2fr] md:gap-20 ${i === experience.length - 1 ? "pb-1" : "pb-9"}`}>
                 <div><p className="font-mono text-xs uppercase text-muted-foreground">{job.period}</p><p className="mt-1 font-mono text-xs uppercase text-primary">{job.mode}</p></div>
                 <div><h3 className="text-xl font-semibold">{job.role} <span className="text-primary">— {job.org}</span></h3>
                   <ul className="mt-4 space-y-2 text-muted-foreground">{job.points.map((p) => <li key={p} className="flex gap-3 leading-7"><span className="mt-3 size-1.5 shrink-0 rounded-full bg-primary" />{p}</li>)}</ul></div>
