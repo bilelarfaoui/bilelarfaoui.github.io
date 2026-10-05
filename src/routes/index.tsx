@@ -149,7 +149,7 @@ function Portfolio() {
         </section>
 
         <section className="border-y border-border bg-soft" aria-label="Highlights">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-7 px-6 py-12 md:grid-cols-4 lg:px-10">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-7 px-6 py-10 md:grid-cols-4 lg:px-10">
             {[["2023 →", "Technical Specialist at EPAY"], ["4", "Professional roles"], ["3", "Certifications"], ["4", "Languages spoken"]].map(([n, label]) => <div key={label} className="border-l border-border pl-4"><p className="mb-2 font-mono text-xl font-semibold text-primary">{n}</p><p className="text-sm font-medium sm:text-base">{label}</p></div>)}
           </div>
         </section>
@@ -202,7 +202,7 @@ function Portfolio() {
                 <div className="flex flex-wrap gap-2">{items.map((s) => <span key={s} className="rounded-md bg-accent px-2.5 py-1 font-mono text-xs text-accent-foreground">{s}</span>)}</div>
               </div>)}
             </div>
-            <div className="mt-16">
+            <div className="mt-12">
               <p className="mb-6 font-mono text-xs uppercase text-primary">Certifications</p>
               <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
                 {certifications.map((c) => <div key={c.name} className="flex flex-col bg-surface p-7"><Award className="mb-6 size-5 text-primary" aria-hidden="true" /><h3 className="font-semibold">{c.name}</h3><p className="mt-2 text-sm text-muted-foreground">{c.issuer} · {c.date}</p><Button asChild variant="link" className="mt-5 w-fit p-0"><a href={c.href} target="_blank" rel="noopener noreferrer">Verify certificate <ExternalLink aria-hidden="true" /></a></Button></div>)}
