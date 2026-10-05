@@ -142,7 +142,7 @@ function Portfolio() {
             <div className="overflow-hidden rounded-lg border border-border bg-secondary">
               <img src={portrait} alt="Portrait of Bilel Arfaoui" className="aspect-[4/4.5] h-full w-full object-cover object-center" fetchPriority="high" />
             </div>
-            <div className="absolute -bottom-4 right-0 flex items-center gap-2 rounded-md border border-border bg-background/95 px-3 py-2 font-mono text-[10px] uppercase text-foreground shadow-sm backdrop-blur sm:-bottom-5 sm:-right-3 sm:text-xs">
+            <div className="absolute bottom-3 right-3 flex items-center gap-2 rounded-md border border-border bg-background/95 px-3 py-2 font-mono text-[10px] uppercase text-foreground shadow-sm backdrop-blur sm:bottom-4 sm:right-4 sm:text-xs">
               <MapPin className="size-3.5 shrink-0 text-primary" aria-hidden="true" /> Based in Nabeul, Tunisia
             </div>
           </div>
