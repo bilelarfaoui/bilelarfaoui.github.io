@@ -154,7 +154,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="about" className="scroll-mt-[110px] border-b border-border py-16 md:scroll-mt-16 md:py-20 lg:py-24">
+        <section id="about" className="scroll-mt-[110px] border-b border-border pt-16 pb-10 md:scroll-mt-16 md:pt-20 md:pb-14 lg:pt-24 lg:pb-16">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-[1fr_2fr] md:gap-20 lg:px-10">
             <div><p className="mb-5 font-mono text-xs uppercase text-primary">01 / About me</p><h2 className="max-w-xs text-3xl font-semibold leading-tight sm:text-4xl">Support that holds. Defenses that hold.</h2></div>
             <div className="max-w-2xl space-y-6 text-lg leading-8 text-muted-foreground">
@@ -168,11 +168,11 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="experience" className="scroll-mt-[110px] border-b border-border py-16 md:scroll-mt-16 md:py-20 lg:py-24">
+        <section id="experience" className="scroll-mt-[110px] border-b border-border pt-16 pb-10 md:scroll-mt-16 md:pt-20 md:pb-14 lg:pt-24 lg:pb-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="02" label="Experience" title="Where I’ve worked." intro="Support, infrastructure and monitoring roles across remote and hybrid environments." />
-            <div className="divide-y divide-border border-y border-border">
-              {experience.map((job) => <article key={job.org} className="grid gap-4 py-9 md:grid-cols-[1fr_2fr] md:gap-20">
+            <div className="divide-y divide-border border-t border-border">
+              {experience.map((job, i) => <article key={job.org} className={`grid gap-4 pt-9 md:grid-cols-[1fr_2fr] md:gap-20 ${i === experience.length - 1 ? "pb-1" : "pb-9"}`}>
                 <div><p className="font-mono text-xs uppercase text-muted-foreground">{job.period}</p><p className="mt-1 font-mono text-xs uppercase text-primary">{job.mode}</p></div>
                 <div><h3 className="text-xl font-semibold">{job.role} <span className="text-primary">— {job.org}</span></h3>
                   <ul className="mt-4 space-y-2 text-muted-foreground">{job.points.map((p) => <li key={p} className="flex gap-3 leading-7"><span className="mt-3 size-1.5 shrink-0 rounded-full bg-primary" />{p}</li>)}</ul></div>
@@ -181,7 +181,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="projects" className="scroll-mt-[110px] border-b border-border bg-soft py-16 md:scroll-mt-16 md:py-20 lg:py-24">
+        <section id="projects" className="scroll-mt-[110px] border-b border-border bg-soft pt-16 pb-10 md:scroll-mt-16 md:pt-20 md:pb-14 lg:pt-24 lg:pb-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="03" label="Projects" title="Academic & practical labs." intro="Hands-on builds covering firewalls, containers, monitoring and high availability." />
             <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
@@ -193,7 +193,7 @@ function Portfolio() {
           </div>
         </section>
 
-        <section id="skills" className="scroll-mt-[110px] py-16 md:scroll-mt-16 md:py-20 lg:py-24">
+        <section id="skills" className="scroll-mt-[110px] pt-16 pb-10 md:scroll-mt-16 md:pt-20 md:pb-14 lg:pt-24 lg:pb-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="04" label="Skills" title="Technical toolkit." />
             <div className="grid gap-6 md:grid-cols-2">
@@ -210,7 +210,7 @@ function Portfolio() {
             </div>
           </div>
         </section>
-        <section id="resume" className="scroll-mt-[110px] border-t border-border bg-soft py-16 md:scroll-mt-16 md:py-20 lg:py-24">
+        <section id="resume" className="scroll-mt-[110px] border-t border-border bg-soft pt-16 pb-10 md:scroll-mt-16 md:pt-20 md:pb-14 lg:pt-24 lg:pb-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <SectionHead index="05" label="Resume" title="My resume." />
             <div className="flex flex-col gap-6 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
