@@ -138,7 +138,7 @@ function Portfolio() {
               <Button asChild variant="portfolioOutline" size="lg" className="h-11 px-5"><a href="#experience">View experience <ArrowDown aria-hidden="true" /></a></Button>
             </div>
           </div>
-          <div className="mx-auto w-full max-w-[260px] sm:max-w-[310px] lg:max-w-[330px]">
+          <div className="mx-auto mt-16 w-[clamp(190px,48vw,300px)] sm:mt-24 sm:w-[clamp(240px,36vw,330px)] lg:mt-0 lg:w-full lg:max-w-[min(36vw,430px)]">
             <div className="overflow-hidden rounded-lg border border-border bg-secondary">
               <img src={portrait} alt="Portrait of Bilel Arfaoui" className="aspect-[4/4.5] h-full w-full object-cover object-center" fetchPriority="high" />
             </div>
