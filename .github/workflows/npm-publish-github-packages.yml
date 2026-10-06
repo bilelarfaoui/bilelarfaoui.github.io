@@ -38,23 +38,25 @@ jobs:
       - name: Build project
         run: npm run build
         env:
+          GITHUB_PAGES: "true"
           VITE_ENV: production
 
-      - name: Verify dist directory
+      - name: Verify static site output
         run: |
-          if [ ! -d "./dist" ]; then
-            echo "❌ Error: dist directory was not created"
+          if [ ! -d "./.output/public" ]; then
+            echo "❌ Error: static site output was not created"
             ls -la
+            ls -la .output || true
             exit 1
           fi
-          echo "✅ dist directory created successfully"
-          du -sh ./dist
-          ls -la ./dist
+          echo "✅ static site output created successfully"
+          du -sh ./.output/public
+          ls -la ./.output/public
 
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.output/public
           retention-days: 7
 
   deploy:
