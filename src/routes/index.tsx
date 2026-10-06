@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, MapPin, FileText, ExternalLink, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/bilel-portrait.jpeg";
-import resume from "@/assets/bilel-resume.pdf.asset.json";
+const resume = { url: "/Bilel_Arfaoui_Resume.pdf" };
 
 export const Route = createFileRoute("/")({
   head: () => ({
