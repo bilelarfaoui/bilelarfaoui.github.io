@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, MapPin, FileText, ExternalLink, Download, X } from "lucide-react";
+import { ArrowDown, ArrowRight, Moon, Sun, Shield, Server, Network, LockKeyhole, Boxes, Activity, Terminal, Award, Mail, Phone, Linkedin, MapPin, FileText, ExternalLink, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/bilel-portrait.jpeg";
 import resume from "@/assets/bilel-resume.pdf.asset.json";
-import resumePreview from "@/assets/bilel-resume-preview.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -67,7 +66,6 @@ function SectionHead({ index, label, title, intro }: { index: string; label: str
 function Portfolio() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [ready, setReady] = useState(false);
-  const [resumeOpen, setResumeOpen] = useState(false);
 
   useEffect(() => {
     const saved = window.localStorage.getItem("bilel-theme");
@@ -77,18 +75,6 @@ function Portfolio() {
     setReady(true);
   }, []);
 
-  useEffect(() => {
-    if (!resumeOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setResumeOpen(false);
-    };
-    document.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [resumeOpen]);
 
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
@@ -216,7 +202,7 @@ function Portfolio() {
             <div className="flex flex-col gap-6 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-4"><FileText className="size-8 shrink-0 text-primary" aria-hidden="true" /><div><h3 className="font-semibold">Bilel Arfaoui — Resume</h3><p className="text-sm text-muted-foreground">PDF document</p></div></div>
               <div className="flex flex-wrap gap-3">
-                <Button variant="portfolio" size="lg" onClick={() => setResumeOpen(true)}>View resume <FileText aria-hidden="true" /></Button>
+                <Button asChild variant="portfolio" size="lg"><a href={resume.url} target="_blank" rel="noopener noreferrer">View resume <FileText aria-hidden="true" /></a></Button>
                 <Button asChild variant="portfolioOutline" size="lg"><a href={resume.url} download="Bilel_Arfaoui_Resume.pdf">Download <Download aria-hidden="true" /></a></Button>
               </div>
             </div>
@@ -236,22 +222,6 @@ function Portfolio() {
            <div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 font-mono text-[10px] uppercase text-muted-foreground"><span>© {new Date().getFullYear()} Bilel Arfaoui</span><a href="#top" onClick={(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); window.history.replaceState(null, "", window.location.pathname + window.location.search); }} className="transition-colors hover:text-primary">Back to top ↑</a></div>
         </div>
       </footer>
-      {resumeOpen && (
-        <div role="presentation" className="fixed inset-0 z-[60] flex items-center justify-center bg-foreground/70 p-3 sm:p-6" onClick={() => setResumeOpen(false)}>
-          <div role="dialog" aria-modal="true" aria-label="Bilel Arfaoui resume" className="flex h-full max-h-[900px] w-full max-w-4xl flex-col overflow-hidden rounded-lg bg-background shadow-xl" onClick={(event) => event.stopPropagation()}>
-            <div className="flex h-14 shrink-0 items-center justify-between gap-4 border-b border-border px-4 sm:px-6">
-              <h2 className="min-w-0 truncate font-semibold">Bilel Arfaoui — Resume</h2>
-              <div className="flex items-center gap-2">
-                <Button asChild variant="ghost" size="icon" aria-label="Download resume"><a href={resume.url} download="Bilel_Arfaoui_Resume.pdf"><Download aria-hidden="true" /></a></Button>
-                <Button variant="ghost" size="icon" aria-label="Close resume" onClick={() => setResumeOpen(false)}><X aria-hidden="true" /></Button>
-              </div>
-            </div>
-            <div className="min-h-0 flex-1 overflow-auto bg-soft p-3 sm:p-6">
-              <img src={resumePreview.url} alt="Page 1 of Bilel Arfaoui's resume" className="mx-auto w-full max-w-[740px] bg-surface shadow-sm" />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

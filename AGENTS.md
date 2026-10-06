@@ -11,4 +11,4 @@
 
 - Keep this portfolio as a single TanStack index route with semantic theme tokens in `src/styles.css`, because its content is one coherent professional profile.
 - Treat unverified résumé details as absent rather than inventing qualifications, employers, or contact information, because professional claims must be authentic.
-- Show an image preview of the uploaded PDF in the in-page resume viewer while keeping the original PDF available to download, because embedded PDF viewers can appear blank in preview browsers.
+- Open the uploaded resume PDF in a new browser tab from the Resume section rather than embedding a preview, because the user prefers the real file and embedded PDF viewers render blank in preview browsers; keep a separate download link for saving it.
