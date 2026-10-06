@@ -8,3 +8,4 @@
 - [x] Use English "Resume" labels, make the portrait more compact, and show the uploaded resume when View Resume is clicked.
 - [x] Align section links to section borders and make Back to top return to page top.
 - [x] Tighten the spacing before the Academic & practical labs section while keeping a uniform section rhythm.
+- [x] Make "View resume" open the resume PDF in a new browser tab instead of an in-page preview.
