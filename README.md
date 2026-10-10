@@ -14,7 +14,7 @@ To run this project locally:
 
 ```bash
 # Clone the repository
-git clone [https://github.com/bilelarfaoui/bilelarfaoui.github.io.git](https://github.com/bilelarfaoui/bilelarfaoui.github.io.git)
+git clone https://github.com/bilelarfaoui/bilelarfaoui.github.io.git
 
 # Navigate into the directory
 cd bilelarfaoui.github.io
