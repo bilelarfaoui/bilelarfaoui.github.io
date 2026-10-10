@@ -561,7 +561,7 @@ function Portfolio() {
             </div>
           </div>
           <div
-            className="relative mx-auto mt-10 w-[clamp(240px,68vw,340px)] sm:mt-14 sm:w-[clamp(290px,44vw,400px)] lg:mt-0 lg:w-full lg:max-w-[min(42vw,520px)] before:absolute before:-inset-2 before:translate-x-2 before:translate-y-2 before:rounded-xl before:bg-primary/20 before:content-['']"
+            className="portrait-frame relative mx-auto mt-10 w-[clamp(240px,68vw,340px)] sm:mt-14 sm:w-[clamp(290px,44vw,400px)] lg:mt-0 lg:w-full lg:max-w-[min(42vw,520px)]"
             data-reveal="scale"
           >
             <div className="relative z-10 overflow-hidden rounded-lg border border-border bg-secondary">
