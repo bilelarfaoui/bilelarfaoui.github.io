@@ -227,6 +227,20 @@ header.sticky {
   box-shadow: none;
 }
 
+.portrait-frame::before {
+  position: absolute;
+  inset: 10px -10px -10px 10px;
+  border: 1px solid color-mix(in oklch, var(--primary) 42%, var(--border));
+  border-radius: 0.75rem;
+  content: "";
+  pointer-events: none;
+  transition: transform 350ms ease;
+}
+
+.portrait-frame:hover::before {
+  transform: translate(4px, 4px);
+}
+
 header nav a[aria-current="location"] {
   text-shadow: none;
 }
