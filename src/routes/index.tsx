@@ -127,6 +127,40 @@ const experience = [
   },
 ];
 
+const personalProjects = [
+  {
+    icon: Shield,
+    title: "Linux Hardening Toolkit",
+    period: "GitHub · Linux",
+    description: "A toolkit for applying practical security hardening to Linux systems.",
+    href: "https://github.com/bilelarfaoui/linux-hardening-toolkit",
+  },
+  {
+    icon: Terminal,
+    title: "Linux Debloat",
+    period: "GitHub · Linux",
+    description:
+      "Scripts and utilities for removing unnecessary software and reducing clutter on Linux.",
+    href: "https://github.com/bilelarfaoui/linux-debloat",
+  },
+  {
+    icon: Shield,
+    title: "Windows Hardening",
+    period: "GitHub · Windows",
+    description:
+      "A project focused on strengthening Windows security settings and system configuration.",
+    href: "https://github.com/bilelarfaoui/windows-hardening",
+  },
+  {
+    icon: Terminal,
+    title: "macOS Debloat",
+    period: "GitHub · macOS",
+    description:
+      "A script to reduce macOS telemetry and remove optional apps, with a dry run by default.",
+    href: "https://github.com/bilelarfaoui/macos-debloat",
+  },
+];
+
 const projects = [
   {
     icon: Shield,
@@ -685,7 +719,31 @@ function Portfolio() {
 
         <section id="projects" className="border-b border-border bg-soft py-10 md:py-12 lg:py-14">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
-            <SectionHead label="Projects" title="Academic & practical labs." />
+            <SectionHead label="Projects" title="Personal projects." />
+            <div className="mb-10 grid gap-3 md:grid-cols-3">
+              {personalProjects.map(({ icon: Icon, title, period, description, href }, i) => (
+                <a
+                  key={title}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-reveal="up"
+                  style={{ transitionDelay: `${i * 90}ms` }}
+                  className="glass-panel flex min-h-[220px] flex-col rounded-lg p-6 transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:p-7"
+                >
+                  <div className="mb-7 flex items-center justify-between">
+                    <Icon className="size-6 text-primary" strokeWidth={1.6} aria-hidden="true" />
+                    <span className="font-mono text-xs text-muted-foreground">{period}</span>
+                  </div>
+                  <h3 className="mb-3 inline-flex items-center gap-2 text-xl font-semibold">
+                    {title}
+                    <ExternalLink className="size-4 opacity-60" aria-hidden="true" />
+                  </h3>
+                  <p className="text-sm leading-7 text-muted-foreground">{description}</p>
+                </a>
+              ))}
+            </div>
+            <SectionHead label="Academic projects" title="Academic & practical labs." />
             <div className="grid gap-3 md:grid-cols-3">
               {projects.map(({ icon: Icon, title, period, description }, i) => (
                 <article
