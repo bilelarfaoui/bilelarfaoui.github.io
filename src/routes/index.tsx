@@ -73,7 +73,7 @@ export const Route = createFileRoute("/")({
           email: "mailto:arfaouibilel@proton.me",
           address: { "@type": "PostalAddress", addressLocality: "Nabeul", addressCountry: "TN" },
           sameAs: ["https://linkedin.com/in/bilelarfaoui"],
-          worksFor: { "@type": "Organization", name: "epay" },
+          worksFor: { "@type": "Organization", name: "epayworldwide" },
           knowsLanguage: ["ar", "en", "fr", "de"],
         }),
       },
@@ -85,7 +85,7 @@ export const Route = createFileRoute("/")({
 const experience = [
   {
     role: "Technical Specialist",
-    org: "epay",
+    org: "epayworldwide",
     period: "Aug 2023 – Present",
     mode: "Remote",
     points: [
